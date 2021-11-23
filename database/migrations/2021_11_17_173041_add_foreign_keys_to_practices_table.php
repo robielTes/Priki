@@ -14,7 +14,7 @@ class AddForeignKeysToPracticesTable extends Migration
     public function up()
     {
         Schema::table('practices', function (Blueprint $table) {
-            $table->foreign(['publicationstate_id'], 'fk_practice_states1')->references(['id'])->on('publicationstates')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['publication_state_id'], 'fk_practice_states1')->references(['id'])->on('publication_states')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['domain_id'], 'fk_practice_themes')->references(['id'])->on('domains')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['user_id'], 'fk_practice_submitter')->references(['id'])->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
@@ -28,7 +28,9 @@ class AddForeignKeysToPracticesTable extends Migration
     public function down()
     {
         Schema::table('practices', function (Blueprint $table) {
-            //
+            $table->dropForeign('fk_practice_states1');
+            $table->dropForeign('fk_practice_themes');
+            $table->dropForeign('fk_practice_submitter');
         });
     }
 }

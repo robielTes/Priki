@@ -27,7 +27,8 @@ class AddForeignKeysToOpinionsTable extends Migration
     public function down()
     {
         Schema::table('opinions', function (Blueprint $table) {
-            //
+            $table->dropForeign('fk_opinion_about');
+            $table->dropForeign('fk_opinions_fusers1');
         });
     }
 }

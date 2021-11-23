@@ -17,8 +17,9 @@ class CreatePracticesTable extends Migration
             $table->integer('id', true);
             $table->string('description', 5000);
             $table->integer('domain_id')->index('fk_topics_themes_idx');
-            $table->integer('publicationstate_id')->index('fk_topics_states1_idx');
+            $table->integer('publication_state_id')->index('fk_topics_states1_idx');
             $table->integer('user_id')->index('fk_practice_submitter_idx');
+            $table->timestamps();
         });
     }
 

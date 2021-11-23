@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reference extends Model
 {
     use HasFactory;
+    public $timestamps=false;
+    protected $fillable = [
+        'description'
+    ];
 }
