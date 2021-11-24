@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOpinionsTable extends Migration
+class CreatePublicationStateTransitionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateOpinionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('opinions', function (Blueprint $table) {
+        Schema::create('publication_state_transitions', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('description', 5000);
-            $table->integer('practice_id')->index('fk_opinion_about_idx');
-            $table->integer('user_id')->index('fk_opinions_users1_idx');
-            $table->integer('opinionstate_id');
+            $table->integer('from_id')->index('fk_opinionstatetransitions_opinionstates1_idx');
+            $table->integer('to_id')->index('fk_publicationstatetransitions_publicationstates2_idx');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateOpinionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opinions');
+        Schema::dropIfExists('publication_state_transitions');
     }
 }
