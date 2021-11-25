@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PracticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('/home/{nbDays}',[HomeController::class,'index']);
+Route::get('/practices/{id}',[PracticeController::class,'show'])->name('practices.show');
 
 Route::get('/domain', function () {
     return view('domain');
