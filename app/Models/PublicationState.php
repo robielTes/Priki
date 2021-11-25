@@ -9,4 +9,13 @@ class PublicationState extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'slug'
+    ];
+
+    public function pratice(){
+        return $this->hasMany(Practice::class);
+    }
 }

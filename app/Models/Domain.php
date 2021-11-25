@@ -15,4 +15,8 @@ class Domain extends Model
         'name',
         'slug'
     ];
+
+    public function pratice(){
+        return $this->hasMany(Practice::class);
+    }
 }
