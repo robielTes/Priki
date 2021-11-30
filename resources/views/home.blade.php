@@ -13,9 +13,12 @@
     <div class="text-center text-xl pb-6">
         <label for="listDomain">Domain</label>
         <select name="listDomain" class="input" id="listDomain">
-            <option selected="selected" value="TOU">Tous {{count($practices)}} </option>
+            <option {{'TOU' == $slug ? 'selected': '' }} value=TOU">Tous {{count($practices)}} </option>
             @foreach($domains as $domain)
-                <option value="{{$domain[0]->domain->slug}}">{{$domain[0]->domain->name . ' ' . count($domain)}}</option>
+                <option {{$domain[0]->domain->slug == $slug ? 'selected': '' }}
+                        value="{{$domain[0]->domain->slug}}" >
+                    {{$domain[0]->domain->name . ' ' . count($domain)}}
+                </option>
             @endforeach
 
         </select>

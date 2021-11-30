@@ -15,7 +15,7 @@ class HomeController extends Controller
         $domains = Practice::domainSize();
         $practices = Practice::publication()
             ->where('updated_at','>=',Carbon::now()->subDay($nbDays));
-        return view('home', compact('practices','nbDays', 'domains'));
+        return view('home', compact('practices','nbDays', 'domains','slug'));
     }
 
 
