@@ -5,7 +5,7 @@
 
        <div class="text-center text-xl pb-6">
            <label for="nbDays"></label>
-            Nouveau de <input type="number" name="nbDays" id="nbDays" min="1" max="31" value="{{$nbDays ? $nbDays :5}}"> jours
+            Nouveau de <input type="number" name="nbDays" id="nbDays" min="1" max="31" class="input" value="{{$nbDays ? $nbDays :5}}"> jours
        </div>
 
     <section class="text-gray-600 body-font">
@@ -39,3 +39,7 @@
     </section>
 
 @endsection
+
+
+
+

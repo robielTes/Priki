@@ -1,6 +1,6 @@
 let nbDays = document.querySelector('#nbDays');
  nbDays.addEventListener('change', function (){
-    if(nbDays.value >0 && nbDays.value <=31)window.location = nbDays.value
+    if(nbDays.value >0 && nbDays.value <=1000)window.location = nbDays.value
 })
 
 
