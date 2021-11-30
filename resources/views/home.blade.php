@@ -1,8 +1,11 @@
 @extends('layout.app')
 
 @section('content')
-    <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
 
+    @foreach($domains as $domain)
+    @endforeach
+
+    <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
        <div class="text-center text-xl pb-6">
            <label for="nbDays"></label>
             Nouveau de <input type="number" name="nbDays" id="nbDays" min="1" max="31" class="input" value="{{$nbDays ? $nbDays :5}}"> jours
@@ -12,12 +15,11 @@
         <select name="listDomain" class="input">
             <option selected="selected" value="tous">Tous {{count($practices)}} </option>
             @foreach($domains as $domain)
-                <option value="{{$domain->name}}">{{$domain->name . ' ' . count($practices) . ' '.$domain->id}}</option>
+                <option value="{{$domain[0]->domain->name}}">{{$domain[0]->domain->name . ' ' . count($domain)}}</option>
             @endforeach
 
         </select>
     </div>
-
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">

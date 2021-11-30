@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     public function index(int $nbDays)
     {
-        $domains = Domain::all();
+        $domains = Practice::domainSize();
         $practices = Practice::publication()
             ->where('updated_at','>=',Carbon::now()->subDay($nbDays));
         return view('home', compact('practices','nbDays', 'domains'));

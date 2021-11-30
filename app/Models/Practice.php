@@ -20,5 +20,8 @@ class Practice extends Model
     public static function publication(){
         return Practice::all()->where('publication_state_id',3);
     }
+    public static function domainSize(){
+        return Practice::all()->where('publication_state_id',3)->groupBy('domain_id');
+    }
 
 }
