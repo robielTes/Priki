@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home/{nbDays}',[HomeController::class,'index']);
+Route::get('/home/{nbDays}/{slug}',[HomeController::class,'index']);
 Route::get('/practices/{id}',[PracticeController::class,'show'])->name('practices.show');
 
 Route::get('/domain', function () {

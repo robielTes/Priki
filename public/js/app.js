@@ -3,6 +3,10 @@ let nbDays = document.querySelector('#nbDays');
     if(nbDays.value >0 && nbDays.value <=1000)window.location = nbDays.value
 })
 
+let listDomain = document.querySelector('#listDomain');
+listDomain.addEventListener('change', function (){
+    window.location = listDomain.value
+})
 
 
 

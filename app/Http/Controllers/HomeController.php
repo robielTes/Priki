@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
-    public function index(int $nbDays)
+    public function index(int $nbDays, string $slug)
     {
         $domains = Practice::domainSize();
         $practices = Practice::publication()
