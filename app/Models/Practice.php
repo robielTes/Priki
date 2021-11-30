@@ -16,4 +16,9 @@ class Practice extends Model
     public function publicationState(){
         return $this->belongsTo(PublicationState::class);
     }
+
+    public static function publication(){
+        return Practice::all()->where('publication_state_id',3);
+    }
+
 }

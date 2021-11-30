@@ -7,15 +7,21 @@
            <label for="nbDays"></label>
             Nouveau de <input type="number" name="nbDays" id="nbDays" min="1" max="31" class="input" value="{{$nbDays ? $nbDays :5}}"> jours
        </div>
+    <div class="text-center text-xl pb-6">
+        <label for="listDomain">Domain</label>
+        <select name="listDomain" class="input">
+            <option selected="selected" value="tous">Tous {{count($practices)}} </option>
+            @foreach($domains as $domain)
+                <option value="{{$domain->name}}">{{$domain->name . ' ' . count($practices) . ' '.$domain->id}}</option>
+            @endforeach
+
+        </select>
+    </div>
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
-
             @forelse($practices as $practice)
-                @if($practice->publicationState->slug !== 'PUB')
-                    @continue
-                @endif
                 <div class="p-4 lg:w-1/3">
                     <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                         <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">{{$practice->domain->name}}</h1>
