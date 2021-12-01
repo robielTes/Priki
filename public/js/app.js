@@ -1,11 +1,21 @@
-let nbDays = document.querySelector('#nbDays');
- nbDays.addEventListener('change', function (){
-    if(nbDays.value >0 && nbDays.value <=1000)window.location = nbDays.value
-})
+const nbDays = document.getElementById('nbDays');
+const listDomains = document.getElementById('listDomains');
 
-let listDomain = document.querySelector('#listDomain');
-listDomain.addEventListener('change', function (){
-    window.location = listDomain.value
+document.addEventListener('change', function (e){
+    if(e.target == nbDays){
+        if(nbDays.value >0 && nbDays.value <=1000)window.location = nbDays.value
+    }else if (e.target == listDomains){
+        let last = window.location.href.split('/').slice(-1)
+        let url= window.location.href.split('/').slice(0,-1)
+        if (listDomains.value != 'TOU') {
+            if(last == 'domains') {
+                url.push('domains',listDomains.value)
+            }else {
+                url.push(listDomains.value)
+            }
+        }
+        window.location.replace(url.join('/'));
+    }
 })
 
 
