@@ -11,6 +11,6 @@ class PracticeController extends Controller
     public function show(int $id)
     {
         $practice = Practice::find($id);
-        return view('pratice.show', compact('practice'));
+        return view('pratices.show', compact('practice'));
     }
 }
