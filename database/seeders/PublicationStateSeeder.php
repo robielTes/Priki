@@ -14,7 +14,7 @@ class PublicationStateSeeder extends Seeder
      */
     public function run()
     {
-        PublicationState::insert (
+        PublicationState::insert(
             [
                 ['name' => 'Brouillon', 'slug' => 'DRA'],
                 ['name' => 'Proposé', 'slug' => 'PRO'],

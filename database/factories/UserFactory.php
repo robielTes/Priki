@@ -30,7 +30,7 @@ class UserFactory extends Factory
         return [
             'role_id' => Role::all()->random()->id,
             'name' => $firstName,
-            'fullname' =>  $firstName . ' ' . $this->faker->lastName(),
+            'fullname' => $firstName . ' ' . $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'),

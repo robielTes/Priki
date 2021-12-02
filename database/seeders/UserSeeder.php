@@ -17,8 +17,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Real users
-        $default = Role::where('slug','MBR')->firstOrFail();
-        $moderator = Role::where('slug','MOD')->firstOrFail();
+        $default = Role::where('slug', 'MBR')->firstOrFail();
+        $moderator = Role::where('slug', 'MOD')->firstOrFail();
         foreach (
             [
                 ['lname' => 'BAUDRAZ', 'fname' => 'Yannick', 'role' => $default],
@@ -42,9 +42,9 @@ class UserSeeder extends Seeder
             as $user) {
             User::create([
                 'role_id' => $user['role']->id,
-                'name' => ucfirst(strtolower($user['fname'])).ucfirst(strtolower($user['lname'])),
-                'fullname' => ucfirst(strtolower($user['fname']))." ".$user['lname'],
-                'email' => ucfirst(strtolower($user['fname'])).".".ucfirst(strtolower($user['lname']))."@cpnv.ch",
+                'name' => ucfirst(strtolower($user['fname'])) . ucfirst(strtolower($user['lname'])),
+                'fullname' => ucfirst(strtolower($user['fname'])) . " " . $user['lname'],
+                'email' => ucfirst(strtolower($user['fname'])) . "." . ucfirst(strtolower($user['lname'])) . "@cpnv.ch",
                 'password' => Hash::make(strtolower($user['lname'])),
             ]);
         }

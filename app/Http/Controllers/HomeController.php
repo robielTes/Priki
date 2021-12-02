@@ -15,11 +15,12 @@ class HomeController extends Controller
         $practices = Practice::publication();
         return view('days.index', compact('practices'));
     }
+
     public function show(int $nbDays)
     {
         $practices = Practice::publication()
-            ->where('updated_at','>=',Carbon::now()->subDay($nbDays));
-        return view('days.show', compact('practices','nbDays'));
+            ->where('updated_at', '>=', Carbon::now()->subDay($nbDays));
+        return view('days.show', compact('practices', 'nbDays'));
     }
 
 

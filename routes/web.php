@@ -20,11 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/days',[HomeController::class,'index']);
-Route::get('/domains',[DomainController::class,'index']);
-Route::get('/days/{nbDays}',[HomeController::class,'show']);
-Route::get('/domains/{slug}',[DomainController::class,'show']);
-Route::get('/practices/{id}',[PracticeController::class,'show'])->name('practices.show');
+Route::get('/days', [HomeController::class, 'index']);
+Route::get('/domains', [DomainController::class, 'index']);
+Route::get('/days/{nbDays}', [HomeController::class, 'show']);
+Route::get('/domains/{slug}', [DomainController::class, 'show']);
+Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');
 
 Route::get('/domain', function () {
     return view('domain');

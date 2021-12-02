@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PublicationState extends Model
 {
     use HasFactory;
+
     public $timestamps = false;
 
     protected $fillable = [
@@ -15,7 +16,8 @@ class PublicationState extends Model
         'slug'
     ];
 
-    public function pratice(){
+    public function pratice()
+    {
         return $this->hasMany(Practice::class);
     }
 }

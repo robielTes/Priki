@@ -48,5 +48,5 @@ class OpinionSeeder extends Seeder
                 'user_id' => User::all()->random()->id
             ]);
         }
-}
+    }
 }

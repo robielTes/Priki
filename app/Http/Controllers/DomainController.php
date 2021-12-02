@@ -11,14 +11,14 @@ class DomainController extends Controller
     {
         $domains = Practice::domainSize();
         $practices = Practice::publication();
-        return view('domains.index', compact('practices','domains'));
+        return view('domains.index', compact('practices', 'domains'));
     }
 
-    public function show( string $slug)
+    public function show(string $slug)
     {
         session(['domain' => $slug]);
         $domains = Practice::domainSize();
         $practices = Practice::publicationByDomain($slug);
-        return view('domains.show', compact('practices','domains'));
+        return view('domains.show', compact('practices', 'domains'));
     }
 }
