@@ -10,11 +10,17 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
-    public function index(int $nbDays)
+    public function index()
+    {
+        $practices = Practice::publication();
+        return view('days.index', compact('practices'));
+    }
+    public function show(int $nbDays)
     {
         $practices = Practice::publication()
             ->where('updated_at','>=',Carbon::now()->subDay($nbDays));
-        return view('home', compact('practices','nbDays'));
+        return view('days.show', compact('practices','nbDays'));
     }
+
 
 }

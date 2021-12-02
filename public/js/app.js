@@ -3,7 +3,16 @@ const listDomains = document.getElementById('listDomains');
 
 document.addEventListener('change', function (e){
     if(e.target == nbDays){
-        if(nbDays.value >0 && nbDays.value <=1000)window.location = nbDays.value
+        let last = window.location.href.split('/').slice(-1)
+        let url= window.location.href.split('/').slice(0,-1)
+        if(last == 'days') {
+            url.push('days',nbDays.value)
+        }else {
+            url.push(nbDays.value)
+        }
+
+        window.location.replace(url.join('/'));
+
     }else if (e.target == listDomains){
         let last = window.location.href.split('/').slice(-1)
         let url= window.location.href.split('/').slice(0,-1)
