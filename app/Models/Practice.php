@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +15,11 @@ class Practice extends Model
         return $this->belongsTo(Domain::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function publicationState()
     {
         return $this->belongsTo(PublicationState::class);
@@ -21,12 +27,25 @@ class Practice extends Model
 
     public static function publication()
     {
-        return Practice::all()->where('publication_state_id', 3);
+        return self::whereHas('publicationState',function ($q){
+                $q->where('slug','PUB');
+            })->get();
+    }
+
+    public static function publishedModifiedOnes($nbDays)
+    {
+        return self::where('updated_at', '>=', Carbon::now()->subDay($nbDays))
+            ->whereHas('publicationState',function ($q){
+                $q->where('slug','PUB');
+            })->get();
     }
 
     public static function domainSize()
     {
-        return Practice::all()->where('publication_state_id', 3)->groupBy('domain_id');
+        return self::whereHas('publicationState',function ($q){
+            $q->where('slug','PUB');
+        })->get()->groupBy('domain_id');
+        //return Practice::all()->where('publication_state_id', 3)->groupBy('domain_id');
     }
 
     public static function publicationByDomain(string $slug)

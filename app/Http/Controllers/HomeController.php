@@ -18,8 +18,7 @@ class HomeController extends Controller
 
     public function show(int $nbDays)
     {
-        $practices = Practice::publication()
-            ->where('updated_at', '>=', Carbon::now()->subDay($nbDays));
+        $practices = Practice::publishedModifiedOnes($nbDays);
         return view('days.show', compact('practices', 'nbDays'));
     }
 

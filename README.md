@@ -58,3 +58,21 @@ Certains utilisateurs disposent de droits qui leur permettent de marquer une pra
           l’affichage des pratiques ne contient pas le domaine 
         - Le domaine nous servira de contexte général, y compris quand nous éditerons les textes, 
           opinions et commentaires. Le domaine choisi est donc mémorisé dans la session php 
+
+#### Consultation d’une pratique
+
+    En tant que visiteur
+    Je veux pouvoir consulter une pratique en détail sur une page dédiée.
+
+
+    DoD
+
+        - Depuis n’importe quelle liste de pratiques, je peux cliquer sur une pratique afin d’être 
+          redirigé vers la page de détail de celle-ci  
+        - La page d’une pratique affiche les propriétés suivantes:   
+            Son domaine 
+            Sa description 
+            Son auteur 
+            Sa date de création 
+            Sa date de modification 
+        - Uniquement les pratiques dans l’état ‘Publié’ sont affichables  

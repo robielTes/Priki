@@ -26,13 +26,3 @@ Route::get('/days/{nbDays}', [HomeController::class, 'show']);
 Route::get('/domains/{slug}', [DomainController::class, 'show']);
 Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');
 
-Route::get('/domain', function () {
-    return view('domain');
-});
-Route::get('/role', function () {
-    return view('role');
-});
-
-Route::get('/header', function () {
-    return view('layout.header');
-});
