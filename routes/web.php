@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\DomainController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +15,13 @@ use App\Http\Controllers\DomainController;
 |
 */
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -25,4 +31,3 @@ Route::get('/domains', [DomainController::class, 'index'])->name('domains');
 Route::get('/days/{nbDays}', [HomeController::class, 'show']);
 Route::get('/domains/{slug}', [DomainController::class, 'show']);
 Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');
-
