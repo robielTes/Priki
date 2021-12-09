@@ -2,16 +2,17 @@
 
 @section('content')
    <div class="p-12">
-       <h1 class="font-semibold text-xl text-gray-800 leading-tight">{{ __('Dashboard') }}</h1>
+       <h2 class="text-center text-5xl py-3 font-bold">PRIKI</h2>
+       <h4 class="text-center text-xl py-3">Le thème de cet exercice cette année (2021) est: wiki
+           <span class="font-bold italic">best practices</span></h4>
 
-       <div class="py-12">
-           <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-               <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                   <div class="p-6 bg-white border-b border-gray-200">
-                       You're logged in!
-                   </div>
-               </div>
-           </div>
+       <div class="container px-5 py-8 mx-auto text-xl text-center">
+           <p>
+               Il s'agit d'un site où les utilisateurs peuvent soumettre des bonnes pratiques de développeur,<br> en les argumentant
+               et en les étayant au moyen de références externes.<br>
+               Chaque utilisateur peut commenter les pratiques proposées.<br>
+               Certains utilisateurs disposent de droits qui leur permettent de marquer une pratique proposée comme'best'
+           </p>
        </div>
    </div>
 @endsection

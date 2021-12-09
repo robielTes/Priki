@@ -20,6 +20,11 @@ class Practice extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function opinion()
+    {
+        return $this->hasMany(Opinion::class);
+    }
+
     public function publicationState()
     {
         return $this->belongsTo(PublicationState::class);
@@ -50,8 +55,11 @@ class Practice extends Model
 
     public static function publicationByDomain(string $slug)
     {
-
         return Practice::with('domain')->get()->where('domain.slug', $slug)->where('publication_state_id', 3);
     }
 
+    public static function publishedOpinion($id)
+    {
+        return Practice::with('opinion')->where('id',$id)->first();
+    }
 }

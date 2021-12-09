@@ -2,7 +2,6 @@
 
 @section('content')
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
-
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
@@ -16,6 +15,29 @@
                 <p class="leading-relaxed text-lg">{{$practice->description}}</p>
                 <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
                 <p class="text-gray-500 italic">Dernière mise à jour : le {{ $practice->updated_at->translatedFormat('l jS F Y')}}</p>
+            </div>
+        </div>
+    </section>
+<section class="text-gray-600 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="-my-8 divide-y-2 divide-gray-100">
+                @forelse($practice->opinion as $opinion)
+                <div class="py-8 flex flex-wrap md:flex-nowrap">
+                    <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                        <span class="font-semibold title-font text-gray-700">CATEGORY</span>
+                        <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
+                    </div>
+                    <div class="md:flex-grow">
+                        <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{$opinion->user_id}}</h2>
+                        <p class="leading-relaxed">{{$opinion->description}}</p>
+                        <h2 class="text-xs font-medium italic text-gray-400 mb-1">{{ $practice->updated_at->translatedFormat('jS F Y')}}</h2>
+                    </div>
+                </div>
+
+                @empty
+                    <h3 class="text-center">Aucune opinion à afficher ici</h3>
+                @endforelse
+
             </div>
         </div>
     </section>

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Opinion extends Model
 {
     use HasFactory;
+
+    public function pratice()
+    {
+        return $this->belongsTo(Practice::class);
+    }
 }

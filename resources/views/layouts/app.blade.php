@@ -13,7 +13,7 @@
 <body>
 <div class="relative bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div
+        <header
             class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
             <div class="flex justify-start lg:w-0 lg:flex-1">
                 <a href="{{ route('home')}}">
@@ -36,12 +36,14 @@
                 </button>
             </div>
             <nav class="hidden md:flex space-x-10">
-                <a href="{{ route('days')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                    Modifications récentes
-                </a>
-                <a href="{{ route('domains')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                    Liste par domaine
-                </a>
+                @auth
+                    <a href="{{ route('days')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                        Modifications récentes
+                    </a>
+                    <a href="{{ route('domains')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                        Liste par domaine
+                    </a>
+                @endauth
 
             </nav>
             <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
@@ -68,7 +70,7 @@
                 @endauth
 
             </div>
-        </div>
+        </header>
     </div>
 
 </div>
