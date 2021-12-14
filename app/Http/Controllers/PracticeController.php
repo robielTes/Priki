@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Opinion;
 use App\Models\Practice;
 use App\Models\User;
 use Carbon\Carbon;

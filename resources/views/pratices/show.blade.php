@@ -23,14 +23,11 @@
         <div class="-my-8 divide-y-2 divide-gray-100">
                 @forelse($practice->opinion as $opinion)
                 <div class="py-8 flex flex-wrap md:flex-nowrap">
-                    <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                        <span class="font-semibold title-font text-gray-700">CATEGORY</span>
-                        <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
-                    </div>
                     <div class="md:flex-grow">
-                        <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{$opinion->user_id}}</h2>
+                        <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{$opinion->user->fullname}}
+                            <span class="text-xs font-medium italic text-gray-400 mb-1">{{ $practice->created_at->translatedFormat('jS F Y')}}</span>
+                        </h2>
                         <p class="leading-relaxed">{{$opinion->description}}</p>
-                        <h2 class="text-xs font-medium italic text-gray-400 mb-1">{{ $practice->updated_at->translatedFormat('jS F Y')}}</h2>
                     </div>
                 </div>
 
