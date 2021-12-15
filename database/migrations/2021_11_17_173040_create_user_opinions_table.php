@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserOpinionTable extends Migration
+class CreateUserOpinionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUserOpinionTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_opinion', function (Blueprint $table) {
+        Schema::create('user_opinions', function (Blueprint $table) {
             $table->integer('id', true);
             $table->integer('user_id')->index('fk_users_has_opinions_user_idx');
             $table->integer('opinion_id')->index('fk_users_has_opinions_opinions1_idx');
@@ -29,6 +29,6 @@ class CreateUserOpinionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_opinion');
+        Schema::dropIfExists('user_opinions');
     }
 }

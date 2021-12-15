@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\UserOpinion;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Opinion;
@@ -16,8 +17,10 @@ class UserOpinionSeeder extends Seeder
      */
     public function run()
     {
-        foreach ([
+         foreach ([
                      "C'est un peu court, jeune homme ! On pouvait dire... oh ! Dieu ! ... bien des choses en somme...",
+                      "On pouvait dire... oh ! Dieu ! ... bien des choses en somme...",
+                      " Dieu ! ... bien des choses en somme...",
                      "si j'avais un tel nez,Il faudrait sur le champ que je me l'amputasse !",
                      "faites-vous fabriquer un hanap ! ",
                      "c'est une péninsule ! ",
@@ -49,5 +52,6 @@ class UserOpinionSeeder extends Seeder
                 'points' => rand(-1,1)
             ]);
         }
+         UserOpinion::factory(90)->create();
     }
 }
