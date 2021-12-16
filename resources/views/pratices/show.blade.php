@@ -30,12 +30,14 @@
                         </h2>
                         <p class="leading-relaxed">{{$opinion->description}}</p>
                        <div class="inline-grid grid-cols-3 gap-x-3">
-                           <div class="flex flex-row displayComment">
+                           <div class="flex flex-row">
                                <p>{{$opinion->useOpinion->count()}}</p>
-                               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                   <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
-                                   <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
-                               </svg>
+                               <button class="displayComment" name="{{$opinion->id}}">
+                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hover:text-red-600 " viewBox="0 0 20 20" fill="currentColor">
+                                       <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                                       <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                                   </svg>
+                               </button>
                            </div>
                            <div class="flex flex-row">
                                <p>{{$opinion->useOpinion->where('points','=',1)->count()}}</p>
@@ -53,8 +55,8 @@
                     </div>
                 </div>
                 <div>
-                <section class="text-gray-600 body-font hidden comment">
-                    @forelse($opinion->useOpinion  as $userComment)
+                    <section class="text-gray-600 body-font hidden opinionComment" id="comment{{$opinion->id}}">
+                        @forelse($opinion->useOpinion  as $userComment)
                             <div class="container px-5 mx-auto flex flex-wrap">
                                 <div class="flex flex-wrap w-full py-2">
                                     <div class="flex relative pb-12">
@@ -74,10 +76,10 @@
                                     </div>
                                 </div>
                             </div>
-                    @empty
-                        <h3 class="text-center">Aucune comment à afficher ici</h3>
-                    @endforelse
-                </section>
+                        @empty
+                            <h3 class="text-center">Aucune comment à afficher ici</h3>
+                        @endforelse
+                    </section>
                 </div>
                 @empty
                     <h3 class="text-center">Aucune opinion à afficher ici</h3>

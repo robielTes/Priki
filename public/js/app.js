@@ -5448,34 +5448,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 var nbDays = document.getElementById('nbDays');
 var listDomains = document.getElementById('listDomains');
-var displayComment = document.querySelector('.comment');
-var comment = document.querySelector('.displayComment');
-comment.addEventListener('click', function (e) {
-  if (displayComment.classList.contains('hidden')) {
-    displayComment.classList.remove('hidden');
-  } else {
-    displayComment.classList.add('hidden');
-  }
+var btnComment = document.querySelectorAll('.displayComment');
+btnComment.forEach(function (comment) {
+  comment.addEventListener("click", function (event) {
+    var displayComment = document.getElementById('comment' + event.currentTarget.name);
+    var comment = document.querySelectorAll('.opinionComment');
+    comment.forEach(function (x) {
+      if (x === displayComment) {
+        if (displayComment.classList.contains('hidden')) {
+          displayComment.classList.remove('hidden');
+        } else {
+          displayComment.classList.add('hidden');
+        }
+      } else {
+        x.classList.add('hidden');
+      }
+    });
+  });
 });
 document.addEventListener('change', function (e) {
-  if (e.target == nbDays) {
+  if (e.target === nbDays) {
     var last = window.location.href.split('/').slice(-1);
     var url = window.location.href.split('/').slice(0, -1);
 
-    if (last == 'days') {
+    if (last === 'days') {
       url.push('days', nbDays.value);
     } else {
       url.push(nbDays.value);
     }
 
     window.location.replace(url.join('/'));
-  } else if (e.target == listDomains) {
+  } else if (e.target === listDomains) {
     var _last = window.location.href.split('/').slice(-1);
 
     var _url = window.location.href.split('/').slice(0, -1);
 
-    if (listDomains.value != 'TOU') {
-      if (_last == 'domains') {
+    if (listDomains.value !== 'TOU') {
+      if (_last === 'domains') {
         _url.push('domains', listDomains.value);
       } else {
         _url.push(listDomains.value);
