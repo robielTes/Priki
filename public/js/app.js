@@ -5471,7 +5471,7 @@ document.addEventListener('change', function (e) {
     var last = window.location.href.split('/').slice(-1);
     var url = window.location.href.split('/').slice(0, -1);
 
-    if (last === 'days') {
+    if (last == 'days') {
       url.push('days', nbDays.value);
     } else {
       url.push(nbDays.value);
@@ -5484,7 +5484,7 @@ document.addEventListener('change', function (e) {
     var _url = window.location.href.split('/').slice(0, -1);
 
     if (listDomains.value !== 'TOU') {
-      if (_last === 'domains') {
+      if (_last == 'domains') {
         _url.push('domains', listDomains.value);
       } else {
         _url.push(listDomains.value);
