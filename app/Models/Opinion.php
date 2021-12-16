@@ -18,4 +18,9 @@ class Opinion extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function useOpinion()
+    {
+        return $this->hasMany(UserOpinion::class);
+    }
 }

@@ -9,4 +9,10 @@ class UserOpinion extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function opinion()
+    {
+        return $this->belongsTo(Opinion::class);
+    }
+
 }
