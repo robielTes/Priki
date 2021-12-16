@@ -30,7 +30,7 @@
                         </h2>
                         <p class="leading-relaxed">{{$opinion->description}}</p>
                        <div class="inline-grid grid-cols-3 gap-x-3">
-                           <div class="flex flex-row">
+                           <div class="flex flex-row displayComment">
                                <p>{{$opinion->useOpinion->count()}}</p>
                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                    <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
@@ -51,6 +51,33 @@
                            </div>
                        </div>
                     </div>
+                </div>
+                <div>
+                <section class="text-gray-600 body-font hidden comment">
+                    @forelse($opinion->useOpinion  as $userComment)
+                            <div class="container px-5 mx-auto flex flex-wrap">
+                                <div class="flex flex-wrap w-full py-2">
+                                    <div class="flex relative pb-12">
+                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                        </div>
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">{{$userComment->user->fullname}}</h2>
+                                            <p class="leading-relaxed">{{$userComment->comment}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    @empty
+                        <h3 class="text-center">Aucune comment à afficher ici</h3>
+                    @endforelse
+                </section>
                 </div>
                 @empty
                     <h3 class="text-center">Aucune opinion à afficher ici</h3>

@@ -5446,13 +5446,17 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 var nbDays = document.getElementById('nbDays');
 var listDomains = document.getElementById('listDomains');
+var displayComment = document.querySelector('.comment');
+var comment = document.querySelector('.displayComment');
+comment.addEventListener('click', function (e) {
+  if (displayComment.classList.contains('hidden')) {
+    displayComment.classList.remove('hidden');
+  } else {
+    displayComment.classList.add('hidden');
+  }
+});
 document.addEventListener('change', function (e) {
   if (e.target == nbDays) {
     var last = window.location.href.split('/').slice(-1);
@@ -5481,6 +5485,12 @@ document.addEventListener('change', function (e) {
     window.location.replace(_url.join('/'));
   }
 });
+
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 
 /***/ }),
 

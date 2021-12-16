@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Opinion::class);
     }
+
+    public function useOpinion()
+    {
+        return $this->hasMany(UserOpinion::class);
+    }
 }

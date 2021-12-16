@@ -15,4 +15,9 @@ class UserOpinion extends Model
         return $this->belongsTo(Opinion::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

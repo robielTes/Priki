@@ -14,6 +14,7 @@ class PracticeController extends Controller
     {
 
         $practice = Practice::publishedOpinion($id);
+       // dd($practice->opinion[0]->useOpinion[0]->user->fullname);
         return view('pratices.show', compact('practice'));
     }
 }

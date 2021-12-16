@@ -1,13 +1,15 @@
-require('./bootstrap');
-
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
-
 const nbDays = document.getElementById('nbDays');
 const listDomains = document.getElementById('listDomains');
+const displayComment = document.querySelector('.comment');
+const comment = document.querySelector('.displayComment')
+
+comment.addEventListener('click',function (e){
+    if (displayComment.classList.contains('hidden')) {
+        displayComment.classList.remove('hidden');
+    } else {
+        displayComment.classList.add('hidden');
+    }
+})
 
 document.addEventListener('change', function (e) {
     if (e.target == nbDays) {
@@ -34,3 +36,13 @@ document.addEventListener('change', function (e) {
         window.location.replace(url.join('/'));
     }
 })
+
+
+require('./bootstrap');
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
+
