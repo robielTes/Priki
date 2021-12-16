@@ -51,14 +51,14 @@
                 @auth
                     <a href="{{ url('/dashboard') }}"
                        class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">{{auth()->user()->fullname}}</a>
-                <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <button
-                        class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                        type="submit">Log Out
-                    </button>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button
+                            class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                            type="submit">Log Out
+                        </button>
 
-                </form>
+                    </form>
                     @else
                     <a href="{{ route('login') }}"
                        class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Log in</a>
