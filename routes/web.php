@@ -30,4 +30,4 @@ Route::get('/days', [HomeController::class, 'index'])->name('days');
 Route::get('/domains', [DomainController::class, 'index'])->name('domains');
 Route::get('/days/{nbDays}', [HomeController::class, 'show']);
 Route::get('/domains/{slug}', [DomainController::class, 'show']);
-Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show')->middleware(['auth']);
+Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');

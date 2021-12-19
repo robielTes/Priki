@@ -36,14 +36,12 @@
                 </button>
             </div>
             <nav class="hidden md:flex space-x-10">
-                @auth
                     <a href="{{ route('days')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Modifications récentes
                     </a>
                     <a href="{{ route('domains')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Liste par domaine
                     </a>
-                @endauth
 
             </nav>
             <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
