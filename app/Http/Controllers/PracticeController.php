@@ -14,6 +14,7 @@ class PracticeController extends Controller
     {
 
         $practice = Practice::publishedOpinion($id);
-        return view('pratices.show', compact('practice'));
+        $hasPublished= Practice::UserPublishedOpinion($id);
+        return view('pratices.show', compact('practice','hasPublished'));
     }
 }

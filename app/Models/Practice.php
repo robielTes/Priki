@@ -62,4 +62,10 @@ class Practice extends Model
     {
         return Practice::with('opinion')->where('id',$id)->first();
     }
+    public static function UserPublishedOpinion($id){
+        return self::publishedOpinion($id)
+            ->whereHas('opinion',function ($q){
+                $q->where('user_id',auth()->user()->id);
+            })->get()->count();
+    }
 }
