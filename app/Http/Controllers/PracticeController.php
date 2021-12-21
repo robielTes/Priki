@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Opinion;
 use App\Models\Practice;
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class PracticeController extends Controller
 {
@@ -17,4 +13,6 @@ class PracticeController extends Controller
         $hasPublished= Practice::UserPublishedOpinion($id);
         return view('pratices.show', compact('practice','hasPublished'));
     }
+
+
 }

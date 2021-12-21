@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\DomainController;
+use App\Http\Controllers\OpinionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,4 @@ Route::get('/domains', [DomainController::class, 'index'])->name('domains');
 Route::get('/days/{nbDays}', [HomeController::class, 'show']);
 Route::get('/domains/{slug}', [DomainController::class, 'show']);
 Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');
+Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])->name('opinion.store');
