@@ -9,6 +9,8 @@ class Opinion extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function pratice()
     {
         return $this->belongsTo(Practice::class);
