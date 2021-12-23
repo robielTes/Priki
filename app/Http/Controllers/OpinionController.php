@@ -22,4 +22,11 @@ class OpinionController extends Controller
 
         return redirect()->route('practices.show',['id' => $id]);
     }
+
+    public function destroy(Request $request, int $id,int $oId)
+    {
+       Opinion::find($oId)->delete();
+
+        return redirect()->route('practices.show',['id' => $id]);
+    }
 }

@@ -14,8 +14,8 @@ class AddForeignKeysToUserOpinionsTable extends Migration
     public function up()
     {
         Schema::table('user_opinions', function (Blueprint $table) {
-            $table->foreign(['opinion_id'], 'fk_fusers_has_opinions_opinions1')->references(['id'])->on('opinions')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign(['user_id'], 'fk_users_has_opinions_user')->references(['id'])->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['opinion_id'], 'fk_fusers_has_opinions_opinions1')->references(['id'])->on('opinions')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign(['user_id'], 'fk_users_has_opinions_user')->references(['id'])->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 

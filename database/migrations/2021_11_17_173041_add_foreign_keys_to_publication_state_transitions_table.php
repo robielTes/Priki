@@ -14,8 +14,8 @@ class AddForeignKeysToPublicationStateTransitionsTable extends Migration
     public function up()
     {
         Schema::table('publication_state_transitions', function (Blueprint $table) {
-            $table->foreign(['from_id'], 'fk_publicationstatetransitions_publicationstates1')->references(['id'])->on('publication_states')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign(['to_id'], 'fk_publicationstatetransitions_publicationstates2')->references(['id'])->on('publication_states')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['from_id'], 'fk_publicationstatetransitions_publicationstates1')->references(['id'])->on('publication_states')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign(['to_id'], 'fk_publicationstatetransitions_publicationstates2')->references(['id'])->on('publication_states')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
