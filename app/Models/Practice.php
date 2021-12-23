@@ -63,9 +63,14 @@ class Practice extends Model
         return Practice::with('opinion')->where('id',$id)->first();
     }
     public static function UserPublishedOpinion($id){
-        return self::find($id)
-            ->whereHas('opinion',function ($q){
-                $q->where('user_id',auth()->user()->id);
-            })->get()->where('id',$id)->count();
+        if(auth()->user()){
+            return self::find($id)
+                ->whereHas('opinion',function ($q){
+                    $q->where('user_id',auth()->user()->id);
+                })->get()->where('id',$id)->count();
+        }
+        else{
+            return self::publishedOpinion($id)->get()->count();
+        }
     }
 }

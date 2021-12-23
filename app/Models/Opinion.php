@@ -11,6 +11,7 @@ class Opinion extends Model
 
     protected $guarded = [];
 
+
     public function pratice()
     {
         return $this->belongsTo(Practice::class);
@@ -24,5 +25,17 @@ class Opinion extends Model
     public function useOpinion()
     {
         return $this->hasMany(UserOpinion::class);
+    }
+
+    public static function newOpinion(\Illuminate\Http\Request $request, int $id)
+    {
+        $request->validate([
+            'opinion' => ['required', 'max:5000', 'min:5'],
+        ]);
+        Opinion::create([
+            'description' => $request->opinion,
+            'practice_id' => $id,
+            'user_id' => auth()->user()->id,
+        ]);
     }
 }

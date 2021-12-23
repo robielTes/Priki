@@ -10,23 +10,15 @@ class OpinionController extends Controller
 {
     public function store(Request $request, int $id)
     {
+        Opinion::newOpinion($request, $id);
 
-        $request->validate([
-            'opinion' => ['required', 'max:5000', 'min:5'],
-        ]);
-        Opinion::create([
-            'description' => $request->opinion,
-            'practice_id' => $id,
-            'user_id' => auth()->user()->id,
-        ]);
-
-        return redirect()->route('practices.show',['id' => $id]);
+        return redirect()->route('practices.show', ['id' => $id]);
     }
 
-    public function destroy(Request $request, int $id,int $oId)
+    public function destroy(Request $request, int $id, int $oId)
     {
-       Opinion::find($oId)->delete();
+        Opinion::find($oId)->delete();
 
-        return redirect()->route('practices.show',['id' => $id]);
+        return redirect()->route('practices.show', ['id' => $id]);
     }
 }

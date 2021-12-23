@@ -20,7 +20,6 @@
     </section>
 
 @if(!$hasPublished)
-    @auth
         <section class="text-gray-600 body-font relative">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-12">
@@ -49,7 +48,8 @@
             </div>
             </div>
         </section>
-    @else
+@endif
+    @guest
         <div class="container px-5 py-24 mx-auto text-center ">
             <a href="{{ route('login') }}">
                 <p  class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 text-2xl">
@@ -58,8 +58,7 @@
             </a>
 
         </div>
-    @endauth
-@endif
+    @endguest
 <section class="text-gray-600 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
         <div class="-my-8 divide-y-2 divide-gray-100">
@@ -93,17 +92,19 @@
                                    <path d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z" />
                                </svg>
                            </div>
-                            @if($opinion->user_id === auth()->user()->id)
-                           <form method="POST" action="{{ route('opinion.destroy', ['id' =>$practice->id,'oId' =>$opinion->id] )}} "class="flex flex-row">
-                               <button type="submit">
-                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                   </svg>
-                               </button>
-                               @csrf
-                               @method('delete')
-                           </form>
-                           @endif
+                          @auth
+                               @if($opinion->user_id === auth()->user()->id)
+                                   <form method="POST" action="{{ route('opinion.destroy', ['id' =>$practice->id,'oId' =>$opinion->id] )}} "class="flex flex-row">
+                                       <button type="submit">
+                                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                           </svg>
+                                       </button>
+                                       @csrf
+                                       @method('delete')
+                                   </form>
+                               @endif
+                          @endauth
 
                        </div>
                     </div>
