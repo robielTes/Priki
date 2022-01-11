@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Opinion;
 use App\Models\Practice;
+use App\Models\UserOpinion;
 use Illuminate\Http\Request;
 
 class OpinionController extends Controller
@@ -23,7 +24,9 @@ class OpinionController extends Controller
     }
     public function addVote(Request $request, int $id, int $vote)
     {
-        dd($vote);
+        if(UserOpinion::canVote(5)){
+            //add vote
+        }
 
         return redirect()->route('practices.show', ['id' => $id]);
     }
