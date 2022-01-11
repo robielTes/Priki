@@ -21,4 +21,10 @@ class OpinionController extends Controller
 
         return redirect()->route('practices.show', ['id' => $id]);
     }
+    public function addVote(Request $request, int $id, int $vote)
+    {
+        dd($vote);
+
+        return redirect()->route('practices.show', ['id' => $id]);
+    }
 }

@@ -34,3 +34,4 @@ Route::get('/domains/{slug}', [DomainController::class, 'show']);
 Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');
 Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])->name('opinion.store');
 Route::delete('/practices/{id}/opinion{oId}', [OpinionController::class, 'destroy'])->name('opinion.destroy');
+Route::post('/practices/{id}/opinion{vote}', [OpinionController::class, 'addVote'])->name('opinion.vote');
