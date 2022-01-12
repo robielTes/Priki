@@ -122,7 +122,7 @@
                 <div>
                     <section class="text-gray-600 body-font hidden opinionComment" id="comment{{$opinion->id}}">
 
-                        <form method="POST" action="{{ route('opinion.store', ['id' => $practice->id] )}}">
+                        <form method="POST" action="{{ route('opinion.comment', ['id' =>$practice->id,'oId' =>$opinion->id] )}}">
                             @csrf
                             <section class="text-gray-600 body-font relative">
                                 <div class="container flex">
@@ -130,7 +130,7 @@
 
                                         <div class="relative mb-4">
                                             <label for="message" class="leading-7 text-sm text-gray-600">Comment</label>
-                                            <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                                            <textarea id="message" name="comment" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                                         </div>
                                         <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Comment</button>
                                     </div>
