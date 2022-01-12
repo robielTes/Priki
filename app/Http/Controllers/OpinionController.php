@@ -22,14 +22,11 @@ class OpinionController extends Controller
 
         return redirect()->route('practices.show', ['id' => $id]);
     }
-    public function addVote(Request $request, int $id, int $oId, int $vote)
+    public function Update(Request $request, int $id, int $oId, int $vote)
     {
-        $opinion = UserOpinion::canVote($oId);
-        if(!$opinion){
-           UserOpinion::addNewVote($oId,$vote);
-        }elseif ($opinion->points !== $vote){
-           UserOpinion::updateVote($opinion->id, $vote);
-        }
+        UserOpinion::updateOrCreate(
+            ['opinion_id'=> $oId, 'user_id'=> auth()->user()->id],
+            ['user_id' => auth()->user()->id, 'opinion_id' => $oId, 'comment' => "", 'points' => $vote]);
 
         return redirect()->route('practices.show', ['id' => $id]);
     }
