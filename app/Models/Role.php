@@ -10,4 +10,9 @@ class Role extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

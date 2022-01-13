@@ -33,6 +33,7 @@ Route::get('/domains', [DomainController::class, 'index'])->name('domains');
 Route::get('/days/{nbDays}', [HomeController::class, 'show']);
 Route::get('/domains/{slug}', [DomainController::class, 'show']);
 Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');
+Route::get('/practices', [PracticeController::class, 'index'])->name('practices.index');
 Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])->name('opinion.store');
 Route::delete('/practices/{id}/opinion{oId}', [OpinionController::class, 'destroy'])->name('opinion.destroy');
 Route::post('/practices/{id}/opinion{oId}/{vote}', [OpinionController::class, 'updateVote'])->name('opinion.vote');

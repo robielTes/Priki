@@ -14,7 +14,7 @@
 <div class="relative bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <header
-            class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+            class="flex justify-between items-center border-b-2 border-gray-100 py-8 md:justify-start md:space-x-10">
             <div class="flex justify-start lg:w-0 lg:flex-1">
                 <a href="{{ route('home')}}">
                     <svg viewBox="0 0 316 316" xmlns="http://www.w3.org/2000/svg" class="h-8 w-auto sm:h-10">
@@ -50,15 +50,37 @@
             <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                       class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">{{auth()->user()->fullname}}</a>
+                    @if(auth()->user()->role->slug === 'MOD')
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <div>{{ auth()->user()->fullname }}</div>
+
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <div class="flex justify-around">
+                                    <a href="{{ route('practices.index') }}"
+                                       class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">{{auth()->user()->role->name}}</a>
+                                </div>
+                            </x-slot>
+                        </x-dropdown>
+                    @else
+                        <a href="{{ url('/dashboard') }}"
+                           class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">{{auth()->user()->fullname}}</a>
+                    @endif
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button
                             class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                             type="submit">Log Out
                         </button>
-
                     </form>
                     @else
                     <a href="{{ route('login') }}"
