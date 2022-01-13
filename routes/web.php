@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\ReferenceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +37,4 @@ Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])->nam
 Route::delete('/practices/{id}/opinion{oId}', [OpinionController::class, 'destroy'])->name('opinion.destroy');
 Route::post('/practices/{id}/opinion{oId}/{vote}', [OpinionController::class, 'updateVote'])->name('opinion.vote');
 Route::post('/practices/{id}/opinion{oId}/', [OpinionController::class, 'updateComment'])->name('opinion.comment');
+Route::get('/references', [ReferenceController::class, 'index'])->name('references');

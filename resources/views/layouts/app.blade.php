@@ -42,6 +42,9 @@
                     <a href="{{ route('domains')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Liste par domaine
                     </a>
+                    <a href="{{ route('references')}}" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                        Liste des références
+                    </a>
 
             </nav>
             <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
