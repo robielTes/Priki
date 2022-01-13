@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if ($message = Session::get('error'))
+        <div class="font-medium text-sm text-red-600 bg-red-200 p-4">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
 
     <section class="text-gray-600 body-font relative">
