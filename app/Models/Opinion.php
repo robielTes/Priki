@@ -27,6 +27,11 @@ class Opinion extends Model
         return $this->hasMany(UserOpinion::class);
     }
 
+    public function references()
+    {
+        return $this->belongsToMany(Reference::class);
+    }
+
     public static function newOpinion(\Illuminate\Http\Request $request, int $id)
     {
         $request->validate([

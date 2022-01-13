@@ -13,4 +13,10 @@ class Reference extends Model
     protected $fillable = [
         'description'
     ];
+
+
+    public function opinions()
+    {
+        return $this->belongsToMany(Opinion::class);
+    }
 }

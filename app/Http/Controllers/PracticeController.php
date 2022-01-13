@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Opinion;
+use App\Models\OpinionReference;
 use App\Models\Practice;
 
 class PracticeController extends Controller
