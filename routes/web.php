@@ -38,3 +38,5 @@ Route::delete('/practices/{id}/opinion{oId}', [OpinionController::class, 'destro
 Route::post('/practices/{id}/opinion{oId}/{vote}', [OpinionController::class, 'updateVote'])->name('opinion.vote');
 Route::post('/practices/{id}/opinion{oId}/', [OpinionController::class, 'updateComment'])->name('opinion.comment');
 Route::get('/references', [ReferenceController::class, 'index'])->name('references');
+Route::get('/references/create', [ReferenceController::class, 'create'])->name('references.create');
+Route::post('/references', [ReferenceController::class, 'store'])->name('references.store');
