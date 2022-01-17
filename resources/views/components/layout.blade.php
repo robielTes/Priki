@@ -97,6 +97,6 @@
     </div>
 
 </div>
-@yield('content')
+{{$slot}}
 </body>
 </html>

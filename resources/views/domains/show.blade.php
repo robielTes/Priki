@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-
-
+<x-layout>
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
     <div class="text-center text-xl pb-6">
         <select name="listDomains" class="input" id="listDomains">
@@ -45,9 +41,4 @@
             </div>
         </div>
     </section>
-
-@endsection
-
-
-
-
+</x-layout>
