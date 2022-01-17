@@ -10,7 +10,11 @@ class Reference extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = [
-        'description'
-    ];
+    protected $guarded = [];
+
+
+    public function opinions()
+    {
+        return $this->belongsToMany(Reference::class);
+    }
 }

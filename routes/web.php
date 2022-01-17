@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\OpinionController;
-
+use App\Http\Controllers\ReferenceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,41 +28,17 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/days', [HomeController::class, 'index'])
-    ->name('days');
 
-Route::get('/domains', [DomainController::class, 'index'])
-    ->name('domains');
-
-Route::get('/days/{nbDays}', [HomeController::class, 'show'])
-    ->whereNumber('nbDays');
-
-Route::get('/domains/{slug}', [DomainController::class, 'show'])
-    ->whereAlpha('slug');
-
-Route::get('/practices/{id}', [PracticeController::class, 'show'])
-    ->name('practices.show')
-    ->whereNumber('id');
-
-Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])
-    ->name('opinion.store')
-    ->whereNumber('id');
-
-Route::delete('/practices/{id}/opinion{oId}', [OpinionController::class, 'destroy'])
-    ->name('opinion.destroy')
-    ->whereNumber('id')
-    ->whereNumber('oId');
-
-Route::post('/practices/{id}/opinion{oId}/{vote}', [OpinionController::class, 'updateVote'])
-    ->name('opinion.vote')
-    ->whereNumber('id')
-    ->whereNumber('oId')
-    ->where('vote', '0|1|-1')
-    ->middleware('auth');
-
-Route::post('/practices/{id}/opinion{oId}/', [OpinionController::class, 'updateComment'])
-    ->name('opinion.comment')
-    ->whereNumber('id')
-    ->whereNumber('oId')
-    ->middleware('auth');
-
+Route::get('/days', [HomeController::class, 'index'])->name('days');
+Route::get('/domains', [DomainController::class, 'index'])->name('domains');
+Route::get('/days/{nbDays}', [HomeController::class, 'show']);
+Route::get('/domains/{slug}', [DomainController::class, 'show']);
+Route::get('/practices/{id}', [PracticeController::class, 'show'])->name('practices.show');
+Route::get('/practices', [PracticeController::class, 'index'])->name('practices.index');
+Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])->name('opinion.store');
+Route::delete('/practices/{id}/opinion{oId}', [OpinionController::class, 'destroy'])->name('opinion.destroy');
+Route::post('/practices/{id}/opinion{oId}/{vote}', [OpinionController::class, 'updateVote'])->name('opinion.vote');
+Route::post('/practices/{id}/opinion{oId}/', [OpinionController::class, 'updateComment'])->name('opinion.comment');
+Route::get('/references', [ReferenceController::class, 'index'])->name('references');
+Route::get('/references/create', [ReferenceController::class, 'create'])->name('references.create');
+Route::post('/references', [ReferenceController::class, 'store'])->name('references.store');
