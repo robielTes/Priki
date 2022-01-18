@@ -12,8 +12,8 @@ class PracticeController extends Controller
         if (!Gate::allows('isModerator')) {
             abort(403);
         }
-        $practices = Practice::all();
-        return view('practices.index', compact('practices'));
+        $practicesDomains = Practice::all()->sortBy('publication_state_id')->groupBy('domain_id');
+        return view('practices.index', compact('practicesDomains'));
     }
 
     public function show(int $id)
