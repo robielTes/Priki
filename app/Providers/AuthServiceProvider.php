@@ -27,8 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('access-moderator', function ($user) {
-            return $user()->role->slug === 'MOD';
+        Gate::define('access-moderator', function () {
+            return auth()->user()->role->slug === 'MOD';
         });
         Gate::define('published', function ($user, $practice) {
             return ($user->role->slug === 'MOD' || $practice->publicationState->slug === 'PUB');
