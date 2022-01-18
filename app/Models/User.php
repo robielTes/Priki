@@ -65,4 +65,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+    public static function isModerator()
+    {
+        return auth()->user()->role->slug === 'MOD';
+    }
 }
