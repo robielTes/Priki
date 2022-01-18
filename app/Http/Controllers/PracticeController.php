@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Opinion;
-use App\Models\OpinionReference;
 use App\Models\Practice;
+use Illuminate\Support\Facades\Gate;
 
 class PracticeController extends Controller
 {
     public function index()
     {
+        if (!Gate::allows('isModerator')) {
+            abort(403);
+        }
         $practices = Practice::all();
         return view('practices.index', compact('practices'));
     }
@@ -18,8 +20,8 @@ class PracticeController extends Controller
     {
 
         $practice = Practice::publishedOpinion($id);
-        $hasPublished= Practice::UserPublishedOpinion($id);
-        return view('practices.show', compact('practice','hasPublished'));
+        $hasPublished = Practice::UserPublishedOpinion($id);
+        return view('practices.show', compact('practice', 'hasPublished'));
     }
 
 

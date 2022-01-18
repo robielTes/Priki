@@ -38,6 +38,9 @@ Route::get('/days/{nbDays}', [HomeController::class, 'show'])
 Route::get('/domains/{slug}', [DomainController::class, 'show'])
     ->whereAlpha('slug');
 
+Route::get('/practices', [PracticeController::class, 'index'])
+    ->name('practices.index');
+
 Route::get('/practices/{id}', [PracticeController::class, 'show'])
     ->name('practices.show')
     ->whereNumber('id');
