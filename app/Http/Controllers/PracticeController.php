@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Practice;
+use App\Models\PublicationState;
 use Illuminate\Support\Facades\Gate;
 
 class PracticeController extends Controller
@@ -27,5 +28,25 @@ class PracticeController extends Controller
         return view('practices.show', compact('practice', 'hasPublished'));
     }
 
+    public function edit(int $id)
+    {
+
+        if (!Gate::allows('access-moderator')) {
+            abort(403);
+        }
+        $practice = Practice::publishedOpinion($id);
+        $hasPublished = Practice::UserPublishedOpinion($id);
+        return view('practices.edit', compact('practice', 'hasPublished'));
+    }
+
+    public function update(int $id)
+    {
+        $practice = Practice::findOrFail($id);
+        if (!Gate::allows('update', $practice)) {
+            abort(403);
+        }
+        Practice::publise($practice);
+        return redirect('days')->with('success', 'Item successfully publication!');
+    }
 
 }

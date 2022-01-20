@@ -10,6 +10,13 @@ class Practice extends Model
 {
     use HasFactory;
 
+    public static function publise($practice)
+    {
+        $practice->publication_state_id = PublicationState::stateId('PUB');
+        $practice->save();
+        $practices = Practice::publication();
+    }
+
     public function domain()
     {
         return $this->belongsTo(Domain::class);

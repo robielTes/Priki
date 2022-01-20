@@ -7,14 +7,19 @@ use App\Models\Practice;
 use App\Models\UserOpinion;
 use Illuminate\Http\Request;
 use \Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 
 class OpinionController extends Controller
 {
     public function store(Request $request, int $id): RedirectResponse
     {
         Opinion::newOpinion($request, $id);
+        $practice = Practice::findOrFail($id);
+        if (!Gate::allows('update', $practice)) {
+            return redirect()->route('practices.show', ['id' => $id]);
+        }
 
-        return redirect()->route('practices.show', ['id' => $id]);
+        return redirect()->route('practices.edit', ['id' => $id]);
     }
 
     public function destroy(Request $request, int $id, int $oId): RedirectResponse

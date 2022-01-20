@@ -1,4 +1,9 @@
 <x-layout>
+    @if ($message = Session::get('success'))
+        <div class="font-medium text-sm text-green-600 bg-green-200 p-4">
+            <strong class="text-center">{{ $message }}</strong>
+        </div>
+    @endif
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
     <div class="text-center text-xl pb-6">
         <label for="nbDays"></label>

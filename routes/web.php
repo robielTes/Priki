@@ -46,6 +46,14 @@ Route::get('/practices/{id}', [PracticeController::class, 'show'])
     ->name('practices.show')
     ->whereNumber('id');
 
+Route::get('/practices/{id}/edit', [PracticeController::class, 'edit'])
+    ->name('practices.edit')
+    ->whereNumber('id');
+
+Route::put('/practices/{id}', [PracticeController::class, 'update'])
+    ->name('practices.update')
+    ->whereNumber('id');
+
 Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])
     ->name('opinion.store')
     ->whereNumber('id');
