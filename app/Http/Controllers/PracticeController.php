@@ -42,9 +42,7 @@ class PracticeController extends Controller
     public function update(int $id)
     {
         $practice = Practice::findOrFail($id);
-        if (!Gate::allows('update', $practice)) {
-            abort(403);
-        }
+        $this->authorize('update',$practice);
         Practice::publise($practice);
         return redirect('days')->with('success', 'Item successfully publication!');
     }

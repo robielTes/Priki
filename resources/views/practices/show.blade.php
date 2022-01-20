@@ -46,6 +46,18 @@
             </div>
             </div>
         </section>
+        @can('update',App\Practice::class)
+        @else
+            <form class="flex flex-row justify-center items-center"
+                  action="{{ route('practices.update', ['id' => $practice->id] ) }}" method="post">
+                @csrf
+                @method('put')
+                <button
+                    class="bg-gray-200 inline-flex py-3 px-5 rounded-lg items-center lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0 hover:bg-gray-400 focus:outline-none">
+                    <span class="title-font font-medium">Publier</span>
+                </button>
+            </form>
+        @endcan
     @endif
     @guest
         <div class="container px-5 py-24 mx-auto text-center ">
