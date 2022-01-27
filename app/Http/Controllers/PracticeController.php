@@ -20,7 +20,7 @@ class PracticeController extends Controller
     public function show(int $id)
     {
 
-        if (!Gate::allows('published', Practice::findOrFail($id))) {
+       if (!Gate::allows('published', Practice::findOrFail($id))) {
             abort(403);
         }
         $practice = Practice::publishedOpinion($id);

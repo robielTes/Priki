@@ -31,10 +31,8 @@ class AuthServiceProvider extends ServiceProvider
             return auth()->user()->role->slug === 'MOD';
         });
         Gate::define('published', function ($user, $practice) {
-            return ($user->role->slug === 'MOD' || $practice->publicationState->slug === 'PUB');
+            return ($practice->publicationState->slug === 'PUB');
         });
-        Gate::define('update', function ($user, $practice) {
-            return ($user->role->slug === 'MOD' && $practice->publicationState->slug === 'PRO');
-        });
+
     }
 }

@@ -13,7 +13,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        dd(Practice::publishedOpinion(2));
         $practices = Practice::publication();
         return view('days.index', compact('practices'));
     }
