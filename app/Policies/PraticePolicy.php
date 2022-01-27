@@ -56,6 +56,11 @@ class PraticePolicy
         return ($user->role->slug === 'MOD' && $practice->publicationState->slug === 'PRO');
     }
 
+    public function edit(User $user, Practice $practice)
+    {
+        return ($user->role->slug === 'MOD' || $practice->user_id === $user->id);
+    }
+
     /**
      * Determine whether the user can delete the model.
      *

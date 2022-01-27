@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Changelog;
 use App\Models\Practice;
 use App\Models\PublicationState;
 use App\Models\User;
@@ -38,11 +39,22 @@ class PracticeController extends Controller
 
     public function update(Practice $practice)
     {
+       // $this->authorize('edit',$practice);
+        $previously = $practice->title;
         $data = request()->validate([
             'title' => ['required','max:40','min:3','unique:practices'],
         ]);
         $practice->update($data);
         $practice->save();
+
+        Changelog::create([
+            'user_id' => auth()->user()->id,
+            'practice_id' => $practice->id,
+            'reason' => request()->raison,
+            'previously' => $previously
+
+
+        ]);
         return redirect()->route('practices.show', ['id' => $practice->id]);
     }
 

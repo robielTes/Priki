@@ -6,15 +6,18 @@
                 <div class="inline-flex">
                     <h3 class="title-font sm:text-4xl text-xl font-medium text-gray-900 mb-3 italic font-bold">
                         "{{$practice->title}}"</h3>
-                    <a href="{{route('practices.edit',['id' => $practice->id])}}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class=" pl-8 pb-10 h-20 w-20" viewBox="0 0 20 20"
-                             fill="currentColor">
-                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"/>
-                            <path fill-rule="evenodd"
-                                  d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                                  clip-rule="evenodd"/>
-                        </svg>
-                    </a>
+                    {{--@can('edit',$practice)--}}
+                        <a href="{{route('practices.edit',['id' => $practice->id])}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class=" pl-8 pb-10 h-20 w-20" viewBox="0 0 20 20"
+                                 fill="currentColor">
+                                <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"/>
+                                <path fill-rule="evenodd"
+                                      d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                      clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    {{--@endcan--}}
+
                 </div>
 
                 <h2 class="text-gray-900 title-font tracking-wider text-2xl pb-3">{{$practice->domain->name}}</h2>
