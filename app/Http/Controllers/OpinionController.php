@@ -19,7 +19,7 @@ class OpinionController extends Controller
             return redirect()->route('practices.show', ['id' => $id]);
         }
 
-        return redirect()->route('practices.edit', ['id' => $id]);
+        return redirect()->route('practices.state.edit', ['id' => $id]);
     }
 
     public function destroy(Request $request, int $id, int $oId): RedirectResponse

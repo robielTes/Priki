@@ -28,7 +28,7 @@ class PracticeController extends Controller
         return view('practices.show', compact('practice', 'hasPublished'));
     }
 
-    public function edit(int $id)
+    public function editState(int $id)
     {
 
         if (!Gate::allows('access-moderator')) {
@@ -36,15 +36,17 @@ class PracticeController extends Controller
         }
         $practice = Practice::publishedOpinion($id);
         $hasPublished = Practice::UserPublishedOpinion($id);
-        return view('practices.edit', compact('practice', 'hasPublished'));
+        return view('practices.state.edit', compact('practice', 'hasPublished'));
     }
 
-    public function update(int $id)
+    public function updateState(int $id)
     {
         $practice = Practice::findOrFail($id);
         $this->authorize('update',$practice);
         Practice::publise($practice);
         return redirect('days')->with('success', 'Item successfully publication!');
     }
+
+
 
 }

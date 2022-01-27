@@ -21,7 +21,7 @@
                                            <h3 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3 italic font-bold">"{{$practice->title}}"</h3>
                                            <h2 class="text-xs font-medium italic text-gray-400 mb-1">{{ $practice->updated_at->translatedFormat('jS F Y')}}</h2>
                                            <p class="mb-3 prikiDescription">{{$practice->description}}</p>
-                                           <a href="{{ route('practices.edit', ['id' => $practice->id] ) }}">
+                                           <a href="{{ route('practices.state.edit', ['id' => $practice->id] ) }}">
                                                <button
                                                    class="bg-gray-200 inline-flex py-3 px-5 rounded-lg items-center lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0 hover:bg-gray-400 focus:outline-none">
                                                    <span class="title-font font-medium">{{$practice->publicationState->name}}</span>
