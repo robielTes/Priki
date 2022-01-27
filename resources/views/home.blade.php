@@ -10,5 +10,6 @@
             Chaque utilisateur peut commenter les pratiques proposées.<br>
             Certains utilisateurs disposent de droits qui leur permettent de marquer une pratique proposée comme'best'
         </p>
+        <p>version: Début Examen- Robiel</p>
     </div>
 </x-priki.layout>
