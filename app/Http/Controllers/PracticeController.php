@@ -39,7 +39,7 @@ class PracticeController extends Controller
     public function update(Practice $practice)
     {
         $data = request()->validate([
-            'title' => ['required','max:40','min:3'],
+            'title' => ['required','max:40','min:3','unique:practices'],
         ]);
         $practice->update($data);
         $practice->save();
