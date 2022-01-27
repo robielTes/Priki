@@ -1,4 +1,4 @@
-<x-layout>
+<x-priki.layout>
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
@@ -59,4 +59,4 @@
             </form>
         @endcan
     @endif
-</x-layout>
+</x-priki.layout>

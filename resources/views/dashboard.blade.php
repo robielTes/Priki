@@ -1,4 +1,4 @@
-<x-layout>
+<x-priki.layout>
     <div class="p-12">
         <h2 class="text-center text-5xl py-3 font-bold">PRIKI</h2>
         <h4 class="text-center text-xl py-3">Le thème de cet exercice cette année (2021) est: wiki
@@ -13,4 +13,4 @@
             </p>
         </div>
     </div>
-</x-layout>
+</x-priki.layout>

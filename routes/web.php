@@ -80,4 +80,3 @@ Route::get('/references', [ReferenceController::class, 'index'])->name('referenc
 Route::get('/references/create', [ReferenceController::class, 'create'])->name('references.create')
     ->middleware('auth');
 Route::post('/references', [ReferenceController::class, 'store'])->name('references.store');
-Route::post('/practices/{id}/publish', [ReferenceController::class, 'store'])->name('references.store');

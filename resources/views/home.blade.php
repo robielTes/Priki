@@ -1,4 +1,4 @@
-<x-layout>
+<x-priki.layout>
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
     <h3 class="text-center text-xl py-3">Le thème de cet exercice cette année (2021) est: wiki
         <span class="font-bold italic">best practices</span></h3>
@@ -11,4 +11,4 @@
             Certains utilisateurs disposent de droits qui leur permettent de marquer une pratique proposée comme'best'
         </p>
     </div>
-</x-layout>
+</x-priki.layout>

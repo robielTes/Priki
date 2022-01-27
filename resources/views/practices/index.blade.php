@@ -1,4 +1,4 @@
-<x-layout>
+<x-priki.layout>
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
     <div class="text-center text-xl pb-6">
     </div>
@@ -42,4 +42,4 @@
             </div>
         </div>
     </section>
-</x-layout>
+</x-priki.layout>

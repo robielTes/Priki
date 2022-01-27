@@ -1,9 +1,5 @@
-<x-layout>
-    @if ($message = Session::get('error'))
-        <div class="font-medium text-sm text-red-600 bg-red-200 p-4">
-            <strong>{{ $message }}</strong>
-        </div>
-    @endif
+<x-priki.layout>
+    <x-priki.message-error />
     <h1 class="text-center text-5xl py-3 font-bold">PRIKI</h1>
 
     <section class="text-gray-600 body-font relative">
@@ -34,4 +30,4 @@
             </div>
         </div>
     </section>
-</x-layout>
+</x-priki.layout>
