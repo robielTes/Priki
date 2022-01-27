@@ -252,4 +252,32 @@
             </div>
         </div>
     </section>
+    <h3 class="text-center text-2xl py-3 font-bold">Changements</h3>
+    <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+        <table class="table-auto w-full text-left whitespace-no-wrap">
+            <thead>
+            <tr>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Qui</th>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Quand</th>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Pourquoi</th>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Valuer précédente</th>
+            </tr>
+            </thead>
+            <tbody>
+           @forelse($histories as $history)
+               <tr>
+                   <td class="border-t-2 border-gray-200 px-4 py-3">{{$history->user->name}}</td>
+                   <td class="border-t-2 border-gray-200 px-4 py-3">{{$history->updated_at}}</td>
+                   <td class="border-t-2 border-gray-200 px-4 py-3">{{$history->reason}}</td>
+                   <td class="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">{{$history->previously}}</td>
+               </tr>
+           @empty
+           @endforelse
+
+
+            </tbody>
+        </table>
+    </div>
+
+
 </x-priki.layout>

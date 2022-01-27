@@ -24,9 +24,10 @@ class PracticeController extends Controller
        if (!Gate::allows('published', Practice::findOrFail($id))) {
             abort(403);
         }
+       $histories = Changelog::with('user')->get()->where('practice_id',$id);
         $practice = Practice::publishedOpinion($id);
         $hasPublished = Practice::UserPublishedOpinion($id);
-        return view('practices.show', compact('practice', 'hasPublished'));
+        return view('practices.show', compact('practice', 'hasPublished','histories'));
     }
 
     public function edit(int $id)

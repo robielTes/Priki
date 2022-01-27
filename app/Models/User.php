@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->hasMany(Practice::class);
     }
 
+    public function changelog()
+    {
+        return $this->hasMany(Changelog::class);
+    }
+
     public function opinion()
     {
         return $this->hasMany(Opinion::class);
