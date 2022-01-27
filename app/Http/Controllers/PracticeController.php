@@ -40,7 +40,7 @@ class PracticeController extends Controller
 
     public function update(Practice $practice)
     {
-       // $this->authorize('edit',$practice);
+       $this->authorize('edit',$practice);
         $previously = $practice->title;
         $data = request()->validate([
             'title' => ['required','max:40','min:3','unique:practices'],

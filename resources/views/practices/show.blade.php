@@ -6,7 +6,7 @@
                 <div class="inline-flex">
                     <h3 class="title-font sm:text-4xl text-xl font-medium text-gray-900 mb-3 italic font-bold">
                         "{{$practice->title}}"</h3>
-                    {{--@can('edit',$practice)--}}
+                    @can('edit',$practice)
                         <a href="{{route('practices.edit',['id' => $practice->id])}}">
                             <svg xmlns="http://www.w3.org/2000/svg" class=" pl-8 pb-10 h-20 w-20" viewBox="0 0 20 20"
                                  fill="currentColor">
@@ -16,7 +16,7 @@
                                       clip-rule="evenodd"/>
                             </svg>
                         </a>
-                    {{--@endcan--}}
+                    @endcan
 
                 </div>
 
