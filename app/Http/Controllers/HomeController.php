@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Domain;
 use App\Models\Practice;
+use App\Models\PublicationState;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        dd(Practice::publishedOpinion(2));
         $practices = Practice::publication();
         return view('days.index', compact('practices'));
     }

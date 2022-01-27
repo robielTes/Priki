@@ -24,7 +24,7 @@ class OpinionController extends Controller
 
     public function destroy(Request $request, int $id, int $oId): RedirectResponse
     {
-        Opinion::find($oId)->delete();
+        Opinion::findOrFail($oId)->delete();
 
         return redirect()->route('practices.show', ['id' => $id]);
     }

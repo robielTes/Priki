@@ -21,6 +21,6 @@ class PublicationState extends Model
         return $this->hasMany(Practice::class);
     }
     public static function stateId (string $slug){
-        return PublicationState::get()->where('slug',$slug)->first()->id;
+        return PublicationState::get()->firstwhere('slug',$slug)->id;
     }
 }
