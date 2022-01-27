@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Practice;
 use App\Models\PublicationState;
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 
 class PracticeController extends Controller
@@ -19,7 +20,6 @@ class PracticeController extends Controller
 
     public function show(int $id)
     {
-
        if (!Gate::allows('published', Practice::findOrFail($id))) {
             abort(403);
         }
