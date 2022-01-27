@@ -46,6 +46,14 @@ Route::get('/practices/{id}', [PracticeController::class, 'show'])
     ->name('practices.show')
     ->whereNumber('id');
 
+Route::get('/practices/{id}/edit', [PracticeController::class, 'edit'])
+    ->name('practices.edit')
+    ->whereNumber('id');
+
+Route::put('/practices/{id}', [PracticeController::class, 'update'])
+    ->name('practices.update')
+    ->whereNumber('id');
+
 Route::get('/practices/state/{id}/edit', [PracticeController::class, 'editState'])
     ->name('practices.state.edit')
     ->whereNumber('id');

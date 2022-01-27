@@ -28,6 +28,20 @@ class PracticeController extends Controller
         return view('practices.show', compact('practice', 'hasPublished'));
     }
 
+    public function edit(int $id)
+    {
+
+        $practice = Practice::publishedOpinion($id);
+        $hasPublished = Practice::UserPublishedOpinion($id);
+        return view('practices.edit', compact('practice', 'hasPublished'));
+    }
+
+    public function update(int $id)
+    {
+
+        dd('ok');
+    }
+
     public function editState(int $id)
     {
 

@@ -3,21 +3,31 @@
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
-                <div class="inline-flex">
                     <h3 class="title-font sm:text-4xl text-xl font-medium text-gray-900 mb-3 italic font-bold">
                         "{{$practice->title}}"</h3>
-                    <a href="{{route('practices.edit',['id' => $practice->id])}}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class=" pl-8 pb-10 h-20 w-20" viewBox="0 0 20 20"
-                             fill="currentColor">
-                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"/>
-                            <path fill-rule="evenodd"
-                                  d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                                  clip-rule="evenodd"/>
-                        </svg>
-                    </a>
+                <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                    <form method="post" action="{{route('practices.update',['id' => $practice->id])}}" class="flex flex-wrap m-6">
+                        @csrf
+                        @method('put')
+                        <div class="p-6">
+                            <div class="relative inline-flex">
+                                <label for="description" class="leading-7 text-sm text-gray-600">Nouveau titre:</label>
+                                <input type="text" id="description" name="description" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="relative inline-flex">
+                                <label for="email" class="leading-7 text-sm text-gray-600">Raison du changement: </label>
+                                <input type="url" id="url" name="url" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-2 w-full">
+                            <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">{{ __('label.Register') }}</button>
+                        </div>
+                    </form>
                 </div>
 
-                <h2 class="text-gray-900 title-font tracking-wider text-2xl pb-3">{{$practice->domain->name}}</h2>
+                <h2 class="text-gray-900 title-font tracking-wider text-2xl py-6">{{$practice->domain->name}}</h2>
                 <p class="text-gray-500 italic">Publiée
                     par {{$practice->user->fullname.' le '.$practice->created_at->translatedFormat('l jS F Y')}}</p>
                 <p class="leading-relaxed text-lg">{{$practice->description}}</p>
