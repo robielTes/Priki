@@ -6,19 +6,25 @@
                     <h3 class="title-font sm:text-4xl text-xl font-medium text-gray-900 mb-3 italic font-bold">
                         "{{$practice->title}}"</h3>
                 <div class="lg:w-1/2 md:w-2/3 mx-auto">
-                    <form method="post" action="{{route('practices.update',['id' => $practice->id])}}" class="flex flex-wrap m-6">
+                    <form method="post" action="{{route('practices.update',['practice' => $practice])}}" class="flex flex-wrap m-6">
                         @csrf
                         @method('put')
                         <div class="p-6">
                             <div class="relative inline-flex">
-                                <label for="description" class="leading-7 text-sm text-gray-600">Nouveau titre:</label>
-                                <input type="text" id="description" name="description" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <label for="title" class="leading-7 text-sm text-gray-600">Nouveau titre:</label>
+                                <input type="text" id="title" name="title" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out
+                                        @error('title') border-red-500 @enderror" value="{{old('title') ?? $practice->title}}">
+                                @error('title')
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ $message}}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="p-6">
                             <div class="relative inline-flex">
-                                <label for="email" class="leading-7 text-sm text-gray-600">Raison du changement: </label>
-                                <input type="url" id="url" name="url" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <label for="raison" class="leading-7 text-sm text-gray-600">Raison du changement: </label>
+                                <input type="text" id="raison" name="raison" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                         </div>
                         <div class="p-2 w-full">

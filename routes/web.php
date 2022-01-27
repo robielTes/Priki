@@ -50,7 +50,7 @@ Route::get('/practices/{id}/edit', [PracticeController::class, 'edit'])
     ->name('practices.edit')
     ->whereNumber('id');
 
-Route::put('/practices/{id}', [PracticeController::class, 'update'])
+Route::put('/practices/{practice}', [PracticeController::class, 'update'])
     ->name('practices.update')
     ->whereNumber('id');
 
@@ -59,8 +59,7 @@ Route::get('/practices/state/{id}/edit', [PracticeController::class, 'editState'
     ->whereNumber('id');
 
 Route::put('/practices/state/{id}', [PracticeController::class, 'updateState'])
-    ->name('practices.state.update')
-    ->whereNumber('id');
+    ->name('practices.state.update');
 
 Route::post('/practices/{id}/opinion', [OpinionController::class, 'store'])
     ->name('opinion.store')

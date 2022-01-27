@@ -10,6 +10,8 @@ class Practice extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public static function publise($practice)
     {
         $practice->publication_state_id = PublicationState::stateId('PUB');

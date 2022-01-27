@@ -36,10 +36,14 @@ class PracticeController extends Controller
         return view('practices.edit', compact('practice', 'hasPublished'));
     }
 
-    public function update(int $id)
+    public function update(Practice $practice)
     {
-
-        dd('ok');
+        $data = request()->validate([
+            'title' => ['required','max:40','min:3'],
+        ]);
+        $practice->update($data);
+        $practice->save();
+        return redirect()->route('practices.show', ['id' => $practice->id]);
     }
 
     public function editState(int $id)
