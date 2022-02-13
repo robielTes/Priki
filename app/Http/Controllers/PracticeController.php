@@ -51,7 +51,7 @@ class PracticeController extends Controller
         Changelog::create([
             'user_id' => auth()->user()->id,
             'practice_id' => $practice->id,
-            'reason' => request()->raison,
+            'reason' => request()->reason,
             'previously' => $previously
 
 

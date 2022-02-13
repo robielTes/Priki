@@ -80,7 +80,7 @@
         @can('update',$practice)
         @else
             <form class="flex flex-row justify-center items-center"
-                  action="{{ route('practices.update', ['id' => $practice->id] ) }}" method="post">
+                  action="{{ route('practices.state.update', ['id' => $practice->id] ) }}" method="post">
                 @csrf
                 @method('put')
                 <button
